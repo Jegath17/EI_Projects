@@ -16,7 +16,7 @@ public class UserInput {
         }
     }
 
-    // New method to get double input
+    
     public static double getDouble(String prompt) {
         while (true) {
             System.out.print(prompt);
