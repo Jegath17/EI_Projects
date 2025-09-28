@@ -14,7 +14,7 @@ public class MarsRoverGUI {
     private static final int GRID_SIZE = 5; // 5x5 grid
 
     public MarsRoverGUI() {
-        // Initialize grid
+        // Initializing grid
         grid = new Grid(GRID_SIZE, GRID_SIZE);
         grid.addObstacle(new Position(2, 2));
         grid.addSample(new Position(1, 1));
@@ -23,13 +23,13 @@ public class MarsRoverGUI {
         // Initialize rover
         rover = new Rover("Perseverance", new Position(0, 0), Direction.N, 100);
 
-        // Frame setup
+        
         frame = new JFrame("Mars Rover Simulation");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
         frame.setLayout(new BorderLayout());
 
-        // Button panel
+        
         JPanel buttonPanel = new JPanel(new GridLayout(2, 3, 5, 5));
         JButton moveBtn = new JButton("Move");
         JButton leftBtn = new JButton("Turn Left");
@@ -45,24 +45,24 @@ public class MarsRoverGUI {
         buttonPanel.add(chargeBtn);
         buttonPanel.add(exitBtn);
 
-        // Telemetry area
+        
         telemetryArea = new JTextArea(10, 20);
         telemetryArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(telemetryArea);
 
-        // Status label
+        
         statusLabel = new JLabel(rover.getStatus());
 
-        // Grid panel
+        
         gridPanel = new GridPanel();
 
-        // Layout
+        
         frame.add(buttonPanel, BorderLayout.NORTH);
         frame.add(gridPanel, BorderLayout.CENTER);
         frame.add(scrollPane, BorderLayout.EAST);
         frame.add(statusLabel, BorderLayout.SOUTH);
 
-        // Button actions
+        
         moveBtn.addActionListener(e -> {
             rover.move(grid);
             updateStatus();
@@ -79,7 +79,7 @@ public class MarsRoverGUI {
         });
 
         collectBtn.addActionListener(e -> {
-            rover.collectSample(grid); // pass grid here
+            rover.collectSample(grid); 
             updateStatus();
         });
 
